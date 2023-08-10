@@ -38,7 +38,13 @@
                 <td>{{ $row->notelpon }}</td>
                 <td>
                   <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                  <a onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')" href="/delete/{{ $row->id }}" class="btn btn-danger">Delete</a>
+                  <form action="/delete/{{ $row->id }}" method="post">
+                    @csrf
+                    @method('delete')
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')">Delete</button>
+                  </form>
+
+                  {{-- <a onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')" href="/delete/{{ $row->id }}" class="btn btn-danger">Delete</a> --}}
                 </td>
             </tr>
             @endforeach

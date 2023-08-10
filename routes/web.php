@@ -21,9 +21,9 @@ Route::get('/tambah', [EmployeeController::class, 'tambah'])->name('tambah');
 Route::post('/insertdata', [EmployeeController::class, 'insertdata'])->name('insertdata');
 
 Route::get('/tampilkandata/{id}', [EmployeeController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/updatedata/{id}', [EmployeeController::class, 'updatedata'])->name('updatedata');
+Route::put('/updatedata/{id}', [EmployeeController::class, 'updatedata'])->name('updatedata');
 
-Route::get('/delete/{id}', [EmployeeController::class, 'delete'])->name('delete');
+Route::delete('/delete/{id}', [EmployeeController::class, 'delete'])->name('delete');
 
 // Route::get('/tambah', function () {
 //     return view('tambah', [

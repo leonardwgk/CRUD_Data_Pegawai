@@ -44,8 +44,14 @@ class EmployeeController extends Controller
 
     public function updatedata(Request $request, $id)
     {
-        $data = Employee::find($id);
-        $data->update($request->all());
+        $data = [
+            'nama' => $request->nama,
+            'jeniskelamin' => $request->jeniskelamin,
+            'notelpon' => $request->notelpon
+        ];
+        Employee::where('id', $id)->update($data);
+        // $data = Employee::find($id);
+        // $data->update($request->all());
         return redirect()->route('pegawai')->with('success', 'Data Berhasil Diubah');
     }
 
